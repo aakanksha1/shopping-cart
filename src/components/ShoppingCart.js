@@ -3,8 +3,9 @@ import { Navbar, Nav, Dropdown, ListGroup, ListGroupItem, Button } from 'react-b
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CartContext } from './CartProvider';
+import { dbLink } from "../App";
 
-const ShoppingCart = () => {
+const ShoppingCart = ({inventory, setInventory}) => {
 
 	const { cart, setCart } = useContext(
 		CartContext
@@ -13,6 +14,13 @@ const ShoppingCart = () => {
 	const deleteItem = product => {
 		const emptyingCart = cart.filter(shoppingItem => product.id !== shoppingItem.id);
 		setCart(emptyingCart);
+
+
+		// inventory
+
+		const updatedInventory = Object.assign({}, inventory);
+		updatedInventory[product.sku][product.size]++;
+    setInventory(updatedInventory);
 	}
 
 	const CheckoutItem = ({ product }) => {
@@ -29,6 +37,13 @@ const ShoppingCart = () => {
 		)
 	}
 
+	const readyCheckout = () => {
+		dbLink.ref().set(inventory);
+    // Empty ShoppingCart
+    setCart([]);
+    alert("Successfully Bought!");
+  };
+
 	// const calculateSubtotal = () => {
 	// 	cart.reduce((a,b) => a + b.price, 0)
 	// };
@@ -40,7 +55,7 @@ const ShoppingCart = () => {
 			<div>
 				<span>Subtotal: ${cart.reduce((a,b) => a + b.price, 0)}</span>
 			<br></br>
-			<Button variant="success">Checkout</Button>
+			<Button variant="success" onClick={readyCheckout}>Checkout</Button>
 			</div>
 		)
 	}
@@ -59,11 +74,14 @@ const ShoppingCart = () => {
 						<hr />
 						{cart.map(product => (
 							<ListGroup>
-								<CheckoutItem product = {product}/>
+								<CheckoutItem product = {product}
+								 inventory={inventory}
+								 setInventory={setInventory}
+								/>
 								<br></br>
 							</ListGroup>
 						))}
-						<Checkout/>
+						<Checkout cart = {cart}/>
 					</Dropdown.Menu>
 				</Dropdown>
 			</Nav>

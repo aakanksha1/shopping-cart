@@ -2,21 +2,40 @@ import React from "react";
 import { ButtonGroup, Button } from 'react-bootstrap';
 
 const sizes = ({ state }) => {
-    const { product, cart, setCart } = state;
+	const { product, cart, setCart, inventory, setInventory } = state;
+	const iterate = product.sku;
 
-    const addToCart = size => {
-        const id = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-        setCart([...cart, { ...product, size, id }]);
-    };
+	const addToCart = size => {
+		const id = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+		setCart([...cart, { ...product, size, id }]);
 
-    return (
-        <ButtonGroup className="button-group" variant="dark">
-            <Button onClick={() => addToCart("S")}>S</Button>
-            <Button onClick={() => addToCart("M")}>M</Button>
-            <Button onClick={() => addToCart("L")}>L</Button>
-            <Button onClick={() => addToCart("XL")}>XL</Button>
-        </ButtonGroup>
-    );
+		// updating inventory 
+		const updatedInventory = Object.assign({}, inventory);
+		updatedInventory[product.sku][size]--;
+		setInventory(updatedInventory);
+	}
+
+	if (Object.keys(inventory).length === 0) {
+		return null;
+	}
+
+	return (
+		<div className='inventory'>
+			{Object.values(inventory[iterate]).every(val => val === 0) ? (
+				<p>Out of Stock</p>) : null}
+			<ButtonGroup className="button-group" variant="dark">
+				{inventory[iterate]["S"] !== 0 ? (
+					<Button onClick={() => addToCart("S")}>S</Button>) : null}
+				{inventory[iterate]["S"] !== 0 ? (
+					<Button onClick={() => addToCart("M")}>M</Button>) : null}
+				{inventory[iterate]["S"] !== 0 ? (
+					<Button onClick={() => addToCart("L")}>L</Button>) : null}
+				{inventory[iterate]["S"] !== 0 ? (
+					<Button onClick={() => addToCart("XL")}>XL</Button>) : null}
+			</ButtonGroup>
+		</div>
+	);
 };
+
 
 export default sizes;

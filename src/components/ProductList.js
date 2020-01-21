@@ -1,15 +1,17 @@
 import ProductCard from "./ProductCard";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Row, Col, Container } from 'react-bootstrap';
 
 
-const ProductList = ({ products }) => {
+const ProductList = ({ products, inventory, setInventory }) => {
 	return (
 		<Container>
-			<Row className = "product-list">
+			<Row className="product-list">
 				{products.map(product => (
 					<Col xs={12} sm={12} md={4} lg={4}>
-						<ProductCard key={product.sku} product={product} />
+						<ProductCard product={product}
+							inventory={inventory}
+							setInventory={setInventory} />
 					</Col>
 				))}
 			</Row>

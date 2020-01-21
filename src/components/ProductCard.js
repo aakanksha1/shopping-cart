@@ -1,13 +1,9 @@
 import React, { useContext } from "react";
-import { Row, Col, Container, ButtonGroup, Card, Button } from 'react-bootstrap';
+import { Container, Card } from 'react-bootstrap';
 import Sizes from './Sizes';
 import { CartContext } from './CartProvider';
 
-const sizes = ({ state }) => {
-
-}
-
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, inventory, setInventory }) => {
 	const { cart, setCart } = useContext(CartContext);
 
 	return (
@@ -25,7 +21,7 @@ const ProductCard = ({ product }) => {
 						<p className="price"><span>Price:</span> {product.currencyFormat.concat(product.price)} </p>
 						<p className="sizes">Sizes:</p>
 						<Sizes
-							state={{ product, cart, setCart }} />
+							state={{ product, cart, setCart, inventory, setInventory }} />
 					</Card.Text>
 				</Card.Body>
 			</Card>
