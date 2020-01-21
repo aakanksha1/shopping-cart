@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Navbar, Nav, Dropdown, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Navbar, Nav, Dropdown, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CartContext } from './CartProvider';
@@ -29,6 +29,22 @@ const ShoppingCart = () => {
 		)
 	}
 
+	// const calculateSubtotal = () => {
+	// 	cart.reduce((a,b) => a + b.price, 0)
+	// };
+
+	const Checkout = () => {
+		if (cart.length > 0) 
+		// const total = calculateSubtotal();
+		return (
+			<div>
+				<span>Subtotal: ${cart.reduce((a,b) => a + b.price, 0)}</span>
+			<br></br>
+			<Button variant="success">Checkout</Button>
+			</div>
+		)
+	}
+
 	return (
 		<Navbar bg="dark" variant="dark" className="navigation-bar">
 			<Navbar.Brand href="#home">
@@ -47,6 +63,7 @@ const ShoppingCart = () => {
 								<br></br>
 							</ListGroup>
 						))}
+						<Checkout/>
 					</Dropdown.Menu>
 				</Dropdown>
 			</Nav>

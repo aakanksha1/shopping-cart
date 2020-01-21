@@ -5,7 +5,8 @@ const sizes = ({ state }) => {
     const { product, cart, setCart } = state;
 
     const addToCart = size => {
-        setCart([...cart, { ...product, size }]);
+        const id = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+        setCart([...cart, { ...product, size, id }]);
     };
 
     return (
