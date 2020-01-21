@@ -31,7 +31,7 @@ const ShoppingCart = ({inventory, setInventory}) => {
 				/>
 				<img src={`data/products/${product.sku}_2.jpg`} alt="" />
 				<p>{product.title}</p>
-				<p>${product.price}</p>
+				<p>Price: ${product.price}</p>
 				<p>Size:{product.size}</p>
 			</ListGroupItem>
 		)
@@ -49,20 +49,19 @@ const ShoppingCart = ({inventory, setInventory}) => {
 	// };
 
 	const Checkout = () => {
-		if (cart.length > 0) 
 		// const total = calculateSubtotal();
-		return (
-			<div>
-				<span>Subtotal: ${cart.reduce((a,b) => a + b.price, 0)}</span>
+		return cart.length >= 1 ?  (
+			<div className = 'checkout'>
+				<span className= "subtotal">Subtotal: ${cart.reduce((a,b) => a + b.price, 0)}</span>
 			<br></br>
-			<Button variant="success" onClick={readyCheckout}>Checkout</Button>
+			<Button variant="success" className = 'checkout-button' onClick={readyCheckout}>Checkout</Button>
 			</div>
-		)
+		): null;
 	}
 
 	return (
-		<Navbar bg="dark" variant="dark" className="navigation-bar">
-			<Navbar.Brand href="#home">
+		<Navbar bg="dark" variant="dark" className="navigation-bar" sticky="top">
+			<Navbar.Brand href="#home" className = "home">
 				Shopping Cart
     </Navbar.Brand>
 			<Nav className="ml-auto">
@@ -71,7 +70,6 @@ const ShoppingCart = ({inventory, setInventory}) => {
 						Shopping Cart
  					 </Dropdown.Toggle>
 					<Dropdown.Menu className="dropdown-menu">
-						<hr />
 						{cart.map(product => (
 							<ListGroup>
 								<CheckoutItem product = {product}

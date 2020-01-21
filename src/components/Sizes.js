@@ -23,15 +23,15 @@ const sizes = ({ state }) => {
 		<div className='inventory'>
 			{Object.values(inventory[iterate]).every(val => val === 0) ? (
 				<p>Out of Stock</p>) : null}
-			<ButtonGroup className="button-group" variant="dark">
+			<ButtonGroup className="button-group">
 				{inventory[iterate]["S"] !== 0 ? (
-					<Button onClick={() => addToCart("S")}>S</Button>) : null}
+					<Button className="button" variant="secondary" onClick={() => addToCart("S")}>S</Button>) : null}
 				{inventory[iterate]["S"] !== 0 ? (
-					<Button onClick={() => addToCart("M")}>M</Button>) : null}
+					<Button className="button" variant="secondary" onClick={() => addToCart("M")}>M</Button>) : null}
 				{inventory[iterate]["S"] !== 0 ? (
-					<Button onClick={() => addToCart("L")}>L</Button>) : null}
+					<Button className="button" variant="secondary" onClick={() => addToCart("L")}>L</Button>) : null}
 				{inventory[iterate]["S"] !== 0 ? (
-					<Button onClick={() => addToCart("XL")}>XL</Button>) : null}
+					<Button className="button" variant="secondary" onClick={() => addToCart("XL")}>XL</Button>) : null}
 			</ButtonGroup>
 		</div>
 	);

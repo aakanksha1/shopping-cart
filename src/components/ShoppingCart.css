@@ -3,5 +3,26 @@
 }
 
 .dropdown-menu {
-    margin-right: 3em;
+  width: 250%;  
+  padding: 0.5em;
+  margin-left: -9em;
+}
+
+.inventory {
+    color: black;
+    display: inline-block;
+}
+
+.checkout {
+    margin-top: 2em;
+}
+
+.checkout > .checkout-button {
+    display: inline-block;
+    float: right;
+    margin-top: -2em;
+}
+
+.home {
+    padding-top: 1em;
 }

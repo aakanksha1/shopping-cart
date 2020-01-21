@@ -5,7 +5,7 @@ import { Row, Col, Container } from 'react-bootstrap';
 
 const ProductList = ({ products, inventory, setInventory }) => {
 	return (
-		<Container>
+		<Container className = "product-container">
 			<Row className="product-list">
 				{products.map(product => (
 					<Col xs={12} sm={12} md={4} lg={4}>

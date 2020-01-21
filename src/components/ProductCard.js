@@ -8,7 +8,7 @@ const ProductCard = ({ product, inventory, setInventory }) => {
 
 	return (
 		<Container>
-			<Card>
+			<Card border="secondary" className="product-card">
 				<Card.Img variant="top"
 					src={"data/products/".concat(product.sku, "_1.jpg")} />
 				<Card.Body>
