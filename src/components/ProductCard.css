@@ -1,0 +1,16 @@
+.price > span {
+    font-weight: bold;
+}
+
+.description > span {
+    font-weight: bold;
+}
+
+.button-group {
+    margin-left: 0.5em;
+}
+
+.sizes {
+    display:inline-block;
+    font-weight: bold;
+}
