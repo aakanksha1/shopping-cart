@@ -14,11 +14,11 @@ const ShoppingCart = () => {
 				Shopping Cart
     </Navbar.Brand>
 			<Nav className="ml-auto">
-				<Dropdown>
-					<Dropdown.Toggle variant="success" id="dropdown-basic">
+				<Dropdown className="dropdown">
+					<Dropdown.Toggle variant="success">
 						Shopping Cart
  					 </Dropdown.Toggle>
-					<Dropdown.Menu>
+					<Dropdown.Menu className="dropdown-menu">
 						<hr />
 						{cart.map(product => (
 							<ListGroup>
@@ -28,6 +28,7 @@ const ShoppingCart = () => {
 									<p>{`$${product.price}`}</p>
 									<p>Size: {product.size}</p>
 								</ListGroupItem>
+								<br></br>
 							</ListGroup>
 						))}
 					</Dropdown.Menu>

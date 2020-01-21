@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ProductList from './components/ProductList';
 import "./components/ProductCard.css";
+import "./components/ShoppingCart.css"
 import ShoppingCart from './components/ShoppingCart';
 import CartProvider from './components/CartProvider';
 
