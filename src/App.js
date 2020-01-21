@@ -15,17 +15,16 @@ import firebase from "firebase/app";
 import "firebase/database";
 import "firebase/auth";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
-import { CardBody, CardText } from 'react-bootstrap/Card';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBIwPV04lHIlEvvRTbPG2qyYHaDX5PVVaY",
-  authDomain: "shopping-cart-115ea.firebaseapp.com",
-  databaseURL: "https://shopping-cart-115ea.firebaseio.com",
-  projectId: "shopping-cart-115ea",
-  storageBucket: "shopping-cart-115ea.appspot.com",
-  messagingSenderId: "588027615299",
-  appId: "1:588027615299:web:9f468a892be3d072135cf6",
-  measurementId: "G-C4WSZN926W"
+  apiKey: "AIzaSyBSElxSHeOnVuPCyWqujcAPVCppag6nrAI",
+  authDomain: "shopping-cart-96da5.firebaseapp.com",
+  databaseURL: "https://shopping-cart-96da5.firebaseio.com",
+  projectId: "shopping-cart-96da5",
+  storageBucket: "shopping-cart-96da5.appspot.com",
+  messagingSenderId: "364759857377",
+  appId: "1:364759857377:web:8789ec29051b9b26689fa0",
+  measurementId: "G-VKH6NJVQKV"
 }
 
 firebase.initializeApp(firebaseConfig);
@@ -111,3 +110,6 @@ const App = () => {
 
 export default App;
 export { dbLink };
+
+// figure out why out of stock image isnt showing
+// figure out why my app isnt showing up / being deployed

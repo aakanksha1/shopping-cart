@@ -1,3 +1,7 @@
+.subtotal {
+    font-size: large;
+}
+
 .dropdown {
     margin-right: 5em;
 }
@@ -5,7 +9,7 @@
 .dropdown-menu {
   width: 250%;  
   padding: 0.5em;
-  margin-left: -9em;
+  margin-left: -12em;
 }
 
 .inventory {
@@ -24,5 +28,15 @@
 }
 
 .home {
-    padding-top: 1em;
+    padding-top: 0.5em;
+    font-size: large;
+}
+
+.card-container {
+    font-size: large;
+}
+
+.checkout-item {
+        display: flex;
+        align-items: center;
 }
