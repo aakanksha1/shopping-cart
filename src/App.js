@@ -23,8 +23,8 @@ const firebaseConfig = {
   projectId: "shopping-cart-96da5",
   storageBucket: "shopping-cart-96da5.appspot.com",
   messagingSenderId: "364759857377",
-  appId: "1:364759857377:web:8789ec29051b9b26689fa0",
-  measurementId: "G-VKH6NJVQKV"
+  appId: "1:364759857377:web:a7a4a36c3adf8c3a689fa0",
+  measurementId: "G-1GZS432PCB"
 }
 
 firebase.initializeApp(firebaseConfig);
